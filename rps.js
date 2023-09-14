@@ -7,7 +7,9 @@ let getComputerChoice = () => {
     return choices[choice];
 }
 
-let rpsRound = (playerSelection, computerSelection) => {
+let playRound = (playerSelection, computerSelection) => {
+    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.replace(playerSelection[0], playerSelection[0].toUpperCase())
     if (playerSelection === 'Rock'){
         if (computerSelection === 'Scissors') {
             return msgs[0] + playerSelection + ' beats ' + computerSelection;
@@ -36,3 +38,7 @@ let rpsRound = (playerSelection, computerSelection) => {
         }
     }
 }
+
+const playerSelection = 'rock';
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection))
